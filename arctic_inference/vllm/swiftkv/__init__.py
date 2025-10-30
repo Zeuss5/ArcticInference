@@ -14,5 +14,6 @@
 # limitations under the License.
 
 from .llama_swiftkv import LlamaSwiftKVForCausalLM
+from .qwen3_swiftkv import Qwen3SwiftKVForCausalLM
 
-__all__ = ["LlamaSwiftKVForCausalLM"]
+__all__ = ["LlamaSwiftKVForCausalLM", "Qwen3SwiftKVForCausalLM"]
