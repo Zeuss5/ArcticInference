@@ -13,6 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .configs import LlamaSwiftKVConfig
+from .configs import LlamaSwiftKVConfig, Qwen3SwiftKVConfig
 
-__all__ = ["LlamaSwiftKVConfig"]
+__all__ = ["LlamaSwiftKVConfig", "Qwen3SwiftKVConfig"]
