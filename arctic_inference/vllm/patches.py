@@ -67,10 +67,11 @@ class WorkerBasePatch(ArcticPatch[WorkerBase]):
 def apply_arctic_patches():
 
     from transformers import AutoConfig
-    from arctic_inference.common.swiftkv import LlamaSwiftKVConfig
+    from arctic_inference.common.swiftkv import LlamaSwiftKVConfig, Qwen3SwiftKVConfig
 
     # Register SwiftKV model configurations to transformers.
     AutoConfig.register("llama_swiftkv", LlamaSwiftKVConfig)
+    AutoConfig.register("qwen3_swiftkv", Qwen3SwiftKVConfig)
 
     from vllm import ModelRegistry
     #from arctic_inference.vllm.swiftkv import LlamaSwiftKVForCausalLM
@@ -79,6 +80,10 @@ def apply_arctic_patches():
     ModelRegistry.register_model(
         "LlamaSwiftKVForCausalLM",
         "arctic_inference.vllm.swiftkv:LlamaSwiftKVForCausalLM")
+
+    ModelRegistry.register_model(
+        "Qwen3SwiftKVForCausalLM",
+        "arctic_inference.vllm.swiftkv:Qwen3SwiftKVForCausalLM")
 
     # Register ArcticSpeculator models to vLLM.
     from arctic_inference.vllm.spec_dec.arctic_speculator import (
